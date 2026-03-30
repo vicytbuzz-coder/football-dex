@@ -8,20 +8,20 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 :root {
---bg: #f7f6f2;
---surface: #ffffff;
---surface2: #f0ede6;
---border: #e5e0d8;
---text: #1a1a18;
---text-mid: #6b6860;
---text-soft: #a8a49e;
---green: #15803d;
---green-bg: #bbf7d0;
---green-border: #4ade80;
---yellow: #ca8a04;
---yellow-bg: #fde68a;
---yellow-border: #facc15;
---radius: 10px;
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --surface2: #f0ede6;
+  --border: #e5e0d8;
+  --text: #1a1a18;
+  --text-mid: #6b6860;
+  --text-soft: #a8a49e;
+  --green: #15803d;
+  --green-bg: #bbf7d0;
+  --green-border: #4ade80;
+  --yellow: #ca8a04;
+  --yellow-bg: #fde68a;
+  --yellow-border: #facc15;
+  --radius: 10px;
 }
 * { margin:0; padding:0; box-sizing:border-box; color-scheme: light only; }
 body { background:#f7f6f2; color:#1a1a18; font-family:'DM Sans',sans-serif; min-height:100vh; }
@@ -171,18 +171,18 @@ cursor:pointer; transition:all 0.15s; position:relative;
 <body>
 
 <div class="header">
-<div class="header-title">Victor's <span>Football</span> Dex</div>
-<div class="header-stats">
-<div class="h-stat"><strong id="h-seen">0</strong><small>Clubs vus</small></div>
-<div class="h-stat"><strong id="h-stadium">0</strong><small>Stades</small></div>
-<div class="h-stat"><strong id="h-matches">0</strong><small>Matchs</small></div>
-</div>
+  <div class="header-title">Victor's <span>Football</span> Dex</div>
+  <div class="header-stats">
+    <div class="h-stat"><strong id="h-seen">0</strong><small>Clubs vus</small></div>
+    <div class="h-stat"><strong id="h-stadium">0</strong><small>Stades</small></div>
+    <div class="h-stat"><strong id="h-matches">0</strong><small>Matchs</small></div>
+  </div>
 </div>
 
 <div class="legend">
-<div class="legend-item"><div class="l-dot" style="background:var(--green)"></div>Vu jouer</div>
-<div class="legend-item"><div class="l-dot" style="background:var(--yellow)"></div>Vu au stade</div>
-<div class="legend-item"><div class="l-dot" style="background:var(--border)"></div>Pas encore vu</div>
+  <div class="legend-item"><div class="l-dot" style="background:var(--green)"></div>Vu jouer</div>
+  <div class="legend-item"><div class="l-dot" style="background:var(--yellow)"></div>Vu au stade</div>
+  <div class="legend-item"><div class="l-dot" style="background:var(--border)"></div>Pas encore vu</div>
 </div>
 
 <div class="tabs-wrap" id="tabs"></div>
@@ -191,189 +191,189 @@ cursor:pointer; transition:all 0.15s; position:relative;
 <!-- Club modal -->
 
 <div class="overlay" id="overlay">
-<div class="modal">
-<button class="m-close" onclick="closeModal()">✕</button>
-<div class="m-title" id="m-name"></div>
-<div class="m-sub" id="m-league"></div>
-<div class="field">
-<label>Statut</label>
-<select id="m-status">
-<option value="unseen">Pas encore vu</option>
-<option value="seen">Vu jouer</option>
-<option value="stadium">Vu au stade</option>
-</select>
-</div>
-<div class="field">
-<label>Matchs vus</label>
-<input type="number" id="m-matches" min="0" placeholder="0">
-</div>
-<div class="field">
-<label>Score(s)</label>
-<input type="text" id="m-scores" placeholder="Ex: Chelsea 2-1">
-</div>
-<div class="field" id="f-stadium" style="display:none">
-<label>Nom du stade</label>
-<input type="text" id="m-stadium" placeholder="Ex: Stade Bollaert">
-</div>
-<div class="m-actions">
-<button class="btn btn-cancel" onclick="closeModal()">Annuler</button>
-<button class="btn btn-reset" onclick="resetClub()">Reset</button>
-<button class="btn btn-save" onclick="saveClub()">Sauvegarder</button>
-</div>
-</div>
+  <div class="modal">
+    <button class="m-close" onclick="closeModal()">✕</button>
+    <div class="m-title" id="m-name"></div>
+    <div class="m-sub" id="m-league"></div>
+    <div class="field">
+      <label>Statut</label>
+      <select id="m-status">
+        <option value="unseen">Pas encore vu</option>
+        <option value="seen">Vu jouer</option>
+        <option value="stadium">Vu au stade</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Matchs vus</label>
+      <input type="number" id="m-matches" min="0" placeholder="0">
+    </div>
+    <div class="field">
+      <label>Score(s)</label>
+      <input type="text" id="m-scores" placeholder="Ex: Chelsea 2-1">
+    </div>
+    <div class="field" id="f-stadium" style="display:none">
+      <label>Nom du stade</label>
+      <input type="text" id="m-stadium" placeholder="Ex: Stade Bollaert">
+    </div>
+    <div class="m-actions">
+      <button class="btn btn-cancel" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-reset" onclick="resetClub()">Reset</button>
+      <button class="btn btn-save" onclick="saveClub()">Sauvegarder</button>
+    </div>
+  </div>
 </div>
 
 <!-- Add club modal (Autre tab) -->
 
 <div class="overlay" id="overlay-add">
-<div class="modal">
-<button class="m-close" onclick="closeAddModal()">✕</button>
-<div class="m-title">Ajouter un club</div>
-<div class="m-sub">Ajouter un club dans l'onglet Autre</div>
-<div class="field">
-<label>Nom du club</label>
-<input type="text" id="add-name" placeholder="Ex: Galatasaray">
-</div>
-<div class="field">
-<label>Statut</label>
-<select id="add-status">
-<option value="unseen">Pas encore vu</option>
-<option value="seen">Vu jouer</option>
-<option value="stadium">Vu au stade</option>
-</select>
-</div>
-<div class="field">
-<label>Matchs vus</label>
-<input type="number" id="add-matches" min="0" placeholder="0">
-</div>
-<div class="field">
-<label>Score(s)</label>
-<input type="text" id="add-scores" placeholder="Ex: Union 2-1">
-</div>
-<div class="field" id="f-add-stadium" style="display:none">
-<label>Nom du stade</label>
-<input type="text" id="add-stadium" placeholder="Ex: Türk Telekom Stadium">
-</div>
-<div class="m-actions">
-<button class="btn btn-cancel" onclick="closeAddModal()">Annuler</button>
-<button class="btn btn-save" onclick="saveAddClub()">Ajouter</button>
-</div>
-</div>
+  <div class="modal">
+    <button class="m-close" onclick="closeAddModal()">✕</button>
+    <div class="m-title">Ajouter un club</div>
+    <div class="m-sub">Ajouter un club dans l'onglet Autre</div>
+    <div class="field">
+      <label>Nom du club</label>
+      <input type="text" id="add-name" placeholder="Ex: Galatasaray">
+    </div>
+    <div class="field">
+      <label>Statut</label>
+      <select id="add-status">
+        <option value="unseen">Pas encore vu</option>
+        <option value="seen">Vu jouer</option>
+        <option value="stadium">Vu au stade</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Matchs vus</label>
+      <input type="number" id="add-matches" min="0" placeholder="0">
+    </div>
+    <div class="field">
+      <label>Score(s)</label>
+      <input type="text" id="add-scores" placeholder="Ex: Union 2-1">
+    </div>
+    <div class="field" id="f-add-stadium" style="display:none">
+      <label>Nom du stade</label>
+      <input type="text" id="add-stadium" placeholder="Ex: Türk Telekom Stadium">
+    </div>
+    <div class="m-actions">
+      <button class="btn btn-cancel" onclick="closeAddModal()">Annuler</button>
+      <button class="btn btn-save" onclick="saveAddClub()">Ajouter</button>
+    </div>
+  </div>
 </div>
 
 <!-- Season manager modal -->
 
 <div class="overlay" id="overlay-season">
-<div class="modal season-modal">
-<button class="m-close" onclick="closeSeasonModal()">✕</button>
-<div class="m-title" id="sm-title"></div>
-<div class="m-sub" id="sm-sub"></div>
-<div class="season-note">
-Cochez les équipes <strong>reléguées</strong> (elles passeront dans la section Relégués) et les équipes <strong>promues</strong> à ajouter depuis les Relégués ou nouvellement.
-</div>
-<div class="season-cols">
-<div class="season-col">
-<h4><span>⬇️</span> Reléguer</h4>
-<div class="team-list-scroll" id="sm-current-list"></div>
-</div>
-<div class="season-col">
-<h4><span>⬆️</span> Promouvoir</h4>
-<div class="team-list-scroll" id="sm-relegated-list"></div>
-</div>
-</div>
-<div class="season-col" style="margin-bottom:16px;">
-<h4><span>➕</span> Ajouter une nouvelle équipe promue</h4>
-<div class="season-add-row">
-<input type="text" id="sm-new-team" placeholder="Nom du club promu...">
-<button onclick="smAddNewTeam()">Ajouter</button>
-</div>
-</div>
-<div class="m-actions">
-<button class="btn btn-cancel" onclick="closeSeasonModal()">Annuler</button>
-<button class="btn btn-save" onclick="applySeasonChanges()">Appliquer les changements</button>
-</div>
-</div>
+  <div class="modal season-modal">
+    <button class="m-close" onclick="closeSeasonModal()">✕</button>
+    <div class="m-title" id="sm-title"></div>
+    <div class="m-sub" id="sm-sub"></div>
+    <div class="season-note">
+      Cochez les équipes <strong>reléguées</strong> (elles passeront dans la section Relégués) et les équipes <strong>promues</strong> à ajouter depuis les Relégués ou nouvellement.
+    </div>
+    <div class="season-cols">
+      <div class="season-col">
+        <h4><span>⬇️</span> Reléguer</h4>
+        <div class="team-list-scroll" id="sm-current-list"></div>
+      </div>
+      <div class="season-col">
+        <h4><span>⬆️</span> Promouvoir</h4>
+        <div class="team-list-scroll" id="sm-relegated-list"></div>
+      </div>
+    </div>
+    <div class="season-col" style="margin-bottom:16px;">
+      <h4><span>➕</span> Ajouter une nouvelle équipe promue</h4>
+      <div class="season-add-row">
+        <input type="text" id="sm-new-team" placeholder="Nom du club promu...">
+        <button onclick="smAddNewTeam()">Ajouter</button>
+      </div>
+    </div>
+    <div class="m-actions">
+      <button class="btn btn-cancel" onclick="closeSeasonModal()">Annuler</button>
+      <button class="btn btn-save" onclick="applySeasonChanges()">Appliquer les changements</button>
+    </div>
+  </div>
 </div>
 
 <script>
 const LEAGUES = [
-{ id:'global', name:'Vue globale', flag:'', isGlobal:true },
-{ id:'premier', name:'Premier League', flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',
-clubs:['Arsenal','Aston Villa','Bournemouth','Brentford','Brighton & Hove Albion','Burnley','Chelsea','Crystal Palace','Everton','Fulham','Leeds United','Liverpool','Manchester City','Manchester United','Newcastle United','Nottingham Forest','Sunderland','Tottenham Hotspur','West Ham United','Wolves'],
-relegated:['Watford'] },
-{ id:'jupiler', name:'Jupiler Pro League', flag:'🇧🇪',
-clubs:['Anderlecht','Antwerp','Cercle Bruges','Charleroi','Club Brugge','Dender','Genk','KAA Gent','La Louviere','Malines','OHL','Saint-Trond','Standard de Liège','Union','Westerlo','Zulte Waregem'],
-relegated:['Beerschot','Courtrai','Eupen','Oostende','RWDM','Seraing'] },
-{ id:'laliga', name:'LaLiga', flag:'🇪🇸',
-clubs:['Athletic Club','Atlético','Barcelona','Celta de Vigo','Deportivo','Elche','Espanyol','Getafe','Girona','Levante','Osasuna','Rayo Vallecano','Real Betis','Real Madrid','Real Oviedo','Real Sociedad','RCD Mallorca','Sevilla','Valencia','Villarreal'],
-relegated:[] },
-{ id:'seriea', name:'Serie A', flag:'🇮🇹',
-clubs:['AC Milan','Atalanta','Bologna','Cagliari','Como','Cremonese','Fiorentina','Genoa','Inter Milan','Juventus','Lazio','Lecce','Napoli','Parme','Pisa','Roma','Sassuolo','Torino','Udinese','Verona'],
-relegated:[] },
-{ id:'bundesliga', name:'Bundesliga', flag:'🇩🇪',
-clubs:['Augsburg','Bayer Leverkusen','Bayern Munich','Borussia Dortmund','Borussia Mönchengladbach','Eintracht Frankfurt','FC Köln','Freiburg','Hamburger SV','Heidenheim','Hoffenheim','Mainz 05','RB Leipzig','St. Pauli','Stuttgart','Union Berlin','Werder Bremen','Wolfsburg'],
-relegated:[] },
-{ id:'ligue1', name:'Ligue 1', flag:'🇫🇷',
-clubs:['Angers','Auxerre','Brest','Le Havre','Lens','Lille','Lorient','Lyon','Marseille','Monaco','Metz','Nantes','Nice','Paris FC','PSG','Rennes','Strasbourg','Toulouse'],
-relegated:[] },
-{ id:'eredivisie', name:'Eredivisie', flag:'🇳🇱',
-clubs:['Ajax','AZ Alkmaar','Excelsior','FC Groningen','FC Twente','FC Utrecht','FC Volendam','Feyenoord','Fortuna Sittard','Go Ahead Eagles','Heracles Almelo','NAC Breda','NEC Nijmegen','PEC Zwolle','PSV Eindhoven','SC Heerenveen','Sparta Rotterdam','Telstar'],
-relegated:[] },
-{ id:'primeira', name:'Primeira Liga', flag:'🇵🇹',
-clubs:['AFS','Arouca','Benfica','Braga','Casa Pia','Estoril','Estrela','Famalicão','FC Alverca','Gil Vicente','Guimaraes','Moreirense','Nacional','Porto','Rio Ave','Santa Clara','Sporting CP','Tondela'],
-relegated:[] },
-{ id:'autre', name:'Autre', flag:'🌐', isAutre:true,
-clubs:[], relegated:[] }
+  { id:'global', name:'Vue globale', flag:'', isGlobal:true },
+  { id:'premier', name:'Premier League', flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+    clubs:['Arsenal','Aston Villa','Bournemouth','Brentford','Brighton & Hove Albion','Burnley','Chelsea','Crystal Palace','Everton','Fulham','Leeds United','Liverpool','Manchester City','Manchester United','Newcastle United','Nottingham Forest','Sunderland','Tottenham Hotspur','West Ham United','Wolves'],
+    relegated:['Watford'] },
+  { id:'jupiler', name:'Jupiler Pro League', flag:'🇧🇪',
+    clubs:['Anderlecht','Antwerp','Cercle Bruges','Charleroi','Club Brugge','Dender','Genk','KAA Gent','La Louviere','Malines','OHL','Saint-Trond','Standard de Liège','Union','Westerlo','Zulte Waregem'],
+    relegated:['Beerschot','Courtrai','Eupen','Oostende','RWDM','Seraing'] },
+  { id:'laliga', name:'LaLiga', flag:'🇪🇸',
+    clubs:['Athletic Club','Atlético','Barcelona','Celta de Vigo','Deportivo','Elche','Espanyol','Getafe','Girona','Levante','Osasuna','Rayo Vallecano','Real Betis','Real Madrid','Real Oviedo','Real Sociedad','RCD Mallorca','Sevilla','Valencia','Villarreal'],
+    relegated:[] },
+  { id:'seriea', name:'Serie A', flag:'🇮🇹',
+    clubs:['AC Milan','Atalanta','Bologna','Cagliari','Como','Cremonese','Fiorentina','Genoa','Inter Milan','Juventus','Lazio','Lecce','Napoli','Parme','Pisa','Roma','Sassuolo','Torino','Udinese','Verona'],
+    relegated:[] },
+  { id:'bundesliga', name:'Bundesliga', flag:'🇩🇪',
+    clubs:['Augsburg','Bayer Leverkusen','Bayern Munich','Borussia Dortmund','Borussia Mönchengladbach','Eintracht Frankfurt','FC Köln','Freiburg','Hamburger SV','Heidenheim','Hoffenheim','Mainz 05','RB Leipzig','St. Pauli','Stuttgart','Union Berlin','Werder Bremen','Wolfsburg'],
+    relegated:[] },
+  { id:'ligue1', name:'Ligue 1', flag:'🇫🇷',
+    clubs:['Angers','Auxerre','Brest','Le Havre','Lens','Lille','Lorient','Lyon','Marseille','Monaco','Metz','Nantes','Nice','Paris FC','PSG','Rennes','Strasbourg','Toulouse'],
+    relegated:[] },
+  { id:'eredivisie', name:'Eredivisie', flag:'🇳🇱',
+    clubs:['Ajax','AZ Alkmaar','Excelsior','FC Groningen','FC Twente','FC Utrecht','FC Volendam','Feyenoord','Fortuna Sittard','Go Ahead Eagles','Heracles Almelo','NAC Breda','NEC Nijmegen','PEC Zwolle','PSV Eindhoven','SC Heerenveen','Sparta Rotterdam','Telstar'],
+    relegated:[] },
+  { id:'primeira', name:'Primeira Liga', flag:'🇵🇹',
+    clubs:['AFS','Arouca','Benfica','Braga','Casa Pia','Estoril','Estrela','Famalicão','FC Alverca','Gil Vicente','Guimaraes','Moreirense','Nacional','Porto','Rio Ave','Santa Clara','Sporting CP','Tondela'],
+    relegated:[] },
+  { id:'autre', name:'Autre', flag:'🌐', isAutre:true,
+    clubs:[], relegated:[] }
 ];
 
 const DEFAULTS = {
-'Chelsea': { status:'stadium', matches:8, scores:'', stadiumName:'Stamford Bridge' },
-'Brentford': { status:'seen', matches:1, scores:'Chelsea 2-1' },
-'Brighton & Hove Albion': { status:'seen', matches:1, scores:'Chelsea 4-2' },
-'Crystal Palace': { status:'seen', matches:1, scores:'Chelsea 1-1' },
-'Leeds United': { status:'seen', matches:1, scores:'Chelsea 2-2' },
-'Liverpool': { status:'seen', matches:1, scores:'Union 2-1' },
-'Newcastle United': { status:'seen', matches:1, scores:'Union 0-4' },
-'Tottenham Hotspur': { status:'seen', matches:1, scores:'Chelsea 1-0' },
-'Wolves': { status:'seen', matches:1, scores:'Chelsea 3-0' },
-'Anderlecht': { status:'stadium', matches:3, scores:'', stadiumName:'Lotto Park' },
-'Antwerp': { status:'seen', matches:1, scores:'Union' },
-'Cercle Bruges': { status:'seen', matches:1, scores:'Union' },
-'Charleroi': { status:'stadium', matches:1, scores:'1-3 Rsca', stadiumName:'Stade du Pays de Charleroi' },
-'Club Brugge': { status:'stadium', matches:2, scores:'', stadiumName:'Jan Breydel' },
-'Dender': { status:'seen', matches:1, scores:'Union' },
-'Genk': { status:'stadium', matches:3, scores:'', stadiumName:'Cegeka Arena' },
-'KAA Gent': { status:'stadium', matches:1, scores:'1-1 Union', stadiumName:'Ghelamco Arena' },
-'La Louviere': { status:'seen', matches:1, scores:'Union' },
-'Malines': { status:'seen', matches:1, scores:'Union' },
-'OHL': { status:'stadium', matches:1, scores:'', stadiumName:'Den Dreef' },
-'Saint-Trond': { status:'stadium', matches:1, scores:'', stadiumName:'Stayen' },
-'Standard de Liège': { status:'stadium', matches:2, scores:'', stadiumName:'Stade de Sclessin' },
-'Union': { status:'stadium', matches:0, scores:'∞', stadiumName:'Stade Joseph Marien' },
-'Westerlo': { status:'seen', matches:1, scores:'Union' },
-'Zulte Waregem': { status:'seen', matches:1, scores:'Union' },
-'Atalanta': { status:'seen', matches:1, scores:'Union 1-0' },
-'Inter Milan': { status:'seen', matches:1, scores:'Union 0-4' },
-'Roma': { status:'seen', matches:1, scores:'Union 1-1' },
-'Bayer Leverkusen': { status:'seen', matches:1, scores:'Union 1-3' },
-'Borussia Mönchengladbach': { status:'stadium', matches:1, scores:'1-0 U. Berlin', stadiumName:'Borussia-Park' },
-'Eintracht Frankfurt': { status:'seen', matches:1, scores:'Union 2-2' },
-'Union Berlin': { status:'seen', matches:3, scores:'' },
-'Angers': { status:'seen', matches:1, scores:'Lens 5-1' },
-'Lens': { status:'stadium', matches:1, scores:'5-1 Angers', stadiumName:'Stade Bollaert-Delelis' },
-'Lille': { status:'stadium', matches:1, scores:'1-1 Lorient', stadiumName:'Stade Pierre-Mauroy' },
-'Lorient': { status:'seen', matches:1, scores:'Lille 1-1' },
-'Marseille': { status:'seen', matches:1, scores:'Union 2-3' },
-'Nice': { status:'seen', matches:1, scores:'Union 2-1' },
-'PSG': { status:'stadium', matches:1, scores:'5-2 Chelsea', stadiumName:'Parc des Princes' },
-'Toulouse': { status:'stadium', matches:1, scores:'0-0 Union', stadiumName:'Stadium de Toulouse' },
-'Ajax': { status:'stadium', matches:1, scores:'5-0 Groningen', stadiumName:'Johan Cruyff Arena' },
-'FC Groningen': { status:'seen', matches:1, scores:'Ajax 5-0' },
-'Braga': { status:'seen', matches:2, scores:'' },
-'Fenerbahçe': { status:'seen', matches:1, scores:'Union 0-3' },
-'Rangers': { status:'seen', matches:1, scores:'Union 2-0' },
-'Malmö': { status:'seen', matches:1, scores:'Union 3-2' },
-'LASK': { status:'seen', matches:1, scores:'Union 2-1' },
+  'Chelsea': { status:'stadium', matches:8, scores:'', stadiumName:'Stamford Bridge' },
+  'Brentford': { status:'seen', matches:1, scores:'Chelsea 2-1' },
+  'Brighton & Hove Albion': { status:'seen', matches:1, scores:'Chelsea 4-2' },
+  'Crystal Palace': { status:'seen', matches:1, scores:'Chelsea 1-1' },
+  'Leeds United': { status:'seen', matches:1, scores:'Chelsea 2-2' },
+  'Liverpool': { status:'seen', matches:1, scores:'Union 2-1' },
+  'Newcastle United': { status:'seen', matches:1, scores:'Union 0-4' },
+  'Tottenham Hotspur': { status:'seen', matches:1, scores:'Chelsea 1-0' },
+  'Wolves': { status:'seen', matches:1, scores:'Chelsea 3-0' },
+  'Anderlecht': { status:'stadium', matches:3, scores:'', stadiumName:'Lotto Park' },
+  'Antwerp': { status:'seen', matches:1, scores:'Union' },
+  'Cercle Bruges': { status:'seen', matches:1, scores:'Union' },
+  'Charleroi': { status:'stadium', matches:1, scores:'1-3 Rsca', stadiumName:'Stade du Pays de Charleroi' },
+  'Club Brugge': { status:'stadium', matches:2, scores:'', stadiumName:'Jan Breydel' },
+  'Dender': { status:'seen', matches:1, scores:'Union' },
+  'Genk': { status:'stadium', matches:3, scores:'', stadiumName:'Cegeka Arena' },
+  'KAA Gent': { status:'stadium', matches:1, scores:'1-1 Union', stadiumName:'Ghelamco Arena' },
+  'La Louviere': { status:'seen', matches:1, scores:'Union' },
+  'Malines': { status:'seen', matches:1, scores:'Union' },
+  'OHL': { status:'stadium', matches:1, scores:'', stadiumName:'Den Dreef' },
+  'Saint-Trond': { status:'stadium', matches:1, scores:'', stadiumName:'Stayen' },
+  'Standard de Liège': { status:'stadium', matches:2, scores:'', stadiumName:'Stade de Sclessin' },
+  'Union': { status:'stadium', matches:0, scores:'∞', stadiumName:'Stade Joseph Marien' },
+  'Westerlo': { status:'seen', matches:1, scores:'Union' },
+  'Zulte Waregem': { status:'seen', matches:1, scores:'Union' },
+  'Atalanta': { status:'seen', matches:1, scores:'Union 1-0' },
+  'Inter Milan': { status:'seen', matches:1, scores:'Union 0-4' },
+  'Roma': { status:'seen', matches:1, scores:'Union 1-1' },
+  'Bayer Leverkusen': { status:'seen', matches:1, scores:'Union 1-3' },
+  'Borussia Mönchengladbach': { status:'stadium', matches:1, scores:'1-0 U. Berlin', stadiumName:'Borussia-Park' },
+  'Eintracht Frankfurt': { status:'seen', matches:1, scores:'Union 2-2' },
+  'Union Berlin': { status:'seen', matches:3, scores:'' },
+  'Angers': { status:'seen', matches:1, scores:'Lens 5-1' },
+  'Lens': { status:'stadium', matches:1, scores:'5-1 Angers', stadiumName:'Stade Bollaert-Delelis' },
+  'Lille': { status:'stadium', matches:1, scores:'1-1 Lorient', stadiumName:'Stade Pierre-Mauroy' },
+  'Lorient': { status:'seen', matches:1, scores:'Lille 1-1' },
+  'Marseille': { status:'seen', matches:1, scores:'Union 2-3' },
+  'Nice': { status:'seen', matches:1, scores:'Union 2-1' },
+  'PSG': { status:'stadium', matches:1, scores:'5-2 Chelsea', stadiumName:'Parc des Princes' },
+  'Toulouse': { status:'stadium', matches:1, scores:'0-0 Union', stadiumName:'Stadium de Toulouse' },
+  'Ajax': { status:'stadium', matches:1, scores:'5-0 Groningen', stadiumName:'Johan Cruyff Arena' },
+  'FC Groningen': { status:'seen', matches:1, scores:'Ajax 5-0' },
+  'Braga': { status:'seen', matches:2, scores:'' },
+  'Fenerbahçe': { status:'seen', matches:1, scores:'Union 0-3' },
+  'Rangers': { status:'seen', matches:1, scores:'Union 2-0' },
+  'Malmö': { status:'seen', matches:1, scores:'Union 3-2' },
+  'LASK': { status:'seen', matches:1, scores:'Union 2-1' },
 };
 
 // Autre clubs default
@@ -385,390 +385,390 @@ let currentModal = null;
 let seasonLeagueId = null;
 
 function load() {
-try {
-const s = localStorage.getItem('vfd_v4');
-if (s) {
-const parsed = JSON.parse(s);
-db = parsed.db || {...DEFAULTS};
-// Restore league mutations
-if (parsed.leagues) {
-LEAGUES.forEach(l => {
-if (parsed.leagues[l.id]) {
-l.clubs = parsed.leagues[l.id].clubs;
-l.relegated = parsed.leagues[l.id].relegated;
-}
-});
-}
-} else {
-db = {...DEFAULTS};
-// Set autre default clubs
-const autre = LEAGUES.find(l => l.id === 'autre');
-if (autre) autre.clubs = [...AUTRE_CLUBS_DEFAULT];
-}
-} catch(e) { db = {...DEFAULTS}; }
+  try {
+    const s = localStorage.getItem('vfd_v4');
+    if (s) {
+      const parsed = JSON.parse(s);
+      db = parsed.db || {...DEFAULTS};
+      // Restore league mutations
+      if (parsed.leagues) {
+        LEAGUES.forEach(l => {
+          if (parsed.leagues[l.id]) {
+            l.clubs = parsed.leagues[l.id].clubs;
+            l.relegated = parsed.leagues[l.id].relegated;
+          }
+        });
+      }
+    } else {
+      db = {...DEFAULTS};
+      // Set autre default clubs
+      const autre = LEAGUES.find(l => l.id === 'autre');
+      if (autre) autre.clubs = [...AUTRE_CLUBS_DEFAULT];
+    }
+  } catch(e) { db = {...DEFAULTS}; }
 }
 
 function persist() {
-try {
-const leagues = {};
-LEAGUES.forEach(l => {
-if (!l.isGlobal) leagues[l.id] = { clubs: l.clubs, relegated: l.relegated };
-});
-localStorage.setItem('vfd_v4', JSON.stringify({ db, leagues }));
-} catch(e) {}
+  try {
+    const leagues = {};
+    LEAGUES.forEach(l => {
+      if (!l.isGlobal) leagues[l.id] = { clubs: l.clubs, relegated: l.relegated };
+    });
+    localStorage.setItem('vfd_v4', JSON.stringify({ db, leagues }));
+  } catch(e) {}
 }
 
 function get(n) { return db[n] || { status:'unseen', matches:0, scores:'', stadiumName:'' }; }
 
 function globalStats() {
-let seen=0, stadium=0, matches=0;
-const counted = new Set();
-LEAGUES.forEach(l => {
-if (l.isGlobal) return;
-[...l.clubs, ...(l.relegated||[])].forEach(c => {
-if (counted.has(c)) return;
-counted.add(c);
-const d = get(c);
-if (d.status==='seen'||d.status==='stadium') seen++;
-if (d.status==='stadium') stadium++;
-matches += parseInt(d.matches)||0;
-});
-});
-return {seen,stadium,matches};
+  let seen=0, stadium=0, matches=0;
+  const counted = new Set();
+  LEAGUES.forEach(l => {
+    if (l.isGlobal) return;
+    [...l.clubs, ...(l.relegated||[])].forEach(c => {
+      if (counted.has(c)) return;
+      counted.add(c);
+      const d = get(c);
+      if (d.status==='seen'||d.status==='stadium') seen++;
+      if (d.status==='stadium') stadium++;
+      matches += parseInt(d.matches)||0;
+    });
+  });
+  return {seen,stadium,matches};
 }
 
 function leagueStats(league) {
-const total = league.clubs.length;
-const seen = league.clubs.filter(c => { const d=get(c); return d.status==='seen'||d.status==='stadium'; }).length;
-return {total, seen};
+  const total = league.clubs.length;
+  const seen = league.clubs.filter(c => { const d=get(c); return d.status==='seen'||d.status==='stadium'; }).length;
+  return {total, seen};
 }
 
 function init() {
-const tabsEl = document.getElementById('tabs');
-const contsEl = document.getElementById('contents');
-tabsEl.innerHTML = ''; contsEl.innerHTML = '';
+  const tabsEl = document.getElementById('tabs');
+  const contsEl = document.getElementById('contents');
+  tabsEl.innerHTML = ''; contsEl.innerHTML = '';
 
-LEAGUES.forEach((league, i) => {
-const tab = document.createElement('div');
-tab.className = 'tab' + (i===0?' active':'');
-tab.dataset.id = league.id;
+  LEAGUES.forEach((league, i) => {
+    const tab = document.createElement('div');
+    tab.className = 'tab' + (i===0?' active':'');
+    tab.dataset.id = league.id;
 
-if (league.isGlobal) {
-tab.textContent = '📊 Vue globale';
-} else if (league.isAutre) {
-tab.innerHTML = `${league.flag} ${league.name} <span class="tab-badge">${league.clubs.length}</span>`;
-} else {
-const s = leagueStats(league);
-const pct = Math.round((s.seen/Math.max(s.total,1))*100);
-tab.innerHTML = `${league.flag} ${league.name} <span class="tab-badge">${pct}%</span>`;
-}
-tab.onclick = () => switchTab(league.id);
-tabsEl.appendChild(tab);
+    if (league.isGlobal) {
+      tab.textContent = '📊 Vue globale';
+    } else if (league.isAutre) {
+      tab.innerHTML = `${league.flag} ${league.name} <span class="tab-badge">${league.clubs.length}</span>`;
+    } else {
+      const s = leagueStats(league);
+      const pct = Math.round((s.seen/Math.max(s.total,1))*100);
+      tab.innerHTML = `${league.flag} ${league.name} <span class="tab-badge">${pct}%</span>`;
+    }
+    tab.onclick = () => switchTab(league.id);
+    tabsEl.appendChild(tab);
 
-const div = document.createElement('div');
-div.className = 'content' + (i===0?' active':'');
-div.id = 'c-' + league.id;
-if (league.isGlobal) div.innerHTML = buildGlobal();
-else if (league.isAutre) div.innerHTML = buildAutre(league);
-else div.innerHTML = buildLeague(league);
-contsEl.appendChild(div);
-});
+    const div = document.createElement('div');
+    div.className = 'content' + (i===0?' active':'');
+    div.id = 'c-' + league.id;
+    if (league.isGlobal) div.innerHTML = buildGlobal();
+    else if (league.isAutre) div.innerHTML = buildAutre(league);
+    else div.innerHTML = buildLeague(league);
+    contsEl.appendChild(div);
+  });
 
-updateHeader();
+  updateHeader();
 }
 
 function buildGlobal() {
-const s = globalStats();
-const rows = LEAGUES.filter(l => !l.isGlobal && !l.isAutre).map(l => {
-const ls = leagueStats(l);
-const pct = Math.round((ls.seen/Math.max(ls.total,1))*100);
-return `<div class="l-row"><span class="lf">${l.flag}</span><span class="ln">${l.name}</span><div class="l-bar"><div class="l-bar-f" style="width:${pct}%"></div></div><span class="l-pct">${pct}%</span></div>`;
-}).join('');
-return `<div class="global-grid">
-<div class="g-card"><div class="g-val green">${s.seen}</div><div class="g-label">Clubs vus</div></div>
-<div class="g-card"><div class="g-val yellow">${s.stadium}</div><div class="g-label">Stades visités</div></div>
-</div><div class="league-list">${rows}</div>`;
+  const s = globalStats();
+  const rows = LEAGUES.filter(l => !l.isGlobal && !l.isAutre).map(l => {
+    const ls = leagueStats(l);
+    const pct = Math.round((ls.seen/Math.max(ls.total,1))*100);
+    return `<div class="l-row"><span class="lf">${l.flag}</span><span class="ln">${l.name}</span><div class="l-bar"><div class="l-bar-f" style="width:${pct}%"></div></div><span class="l-pct">${pct}%</span></div>`;
+  }).join('');
+  return `<div class="global-grid">
+    <div class="g-card"><div class="g-val green">${s.seen}</div><div class="g-label">Clubs vus</div></div>
+    <div class="g-card"><div class="g-val yellow">${s.stadium}</div><div class="g-label">Stades visités</div></div>
+  </div><div class="league-list">${rows}</div>`;
 }
 
 function buildLeague(league) {
-const s = leagueStats(league);
-const pct = Math.round((s.seen/Math.max(s.total,1))*100);
-const cards = league.clubs.map(c => buildCard(c, league.id, false)).join('');
-let rel = '';
-if (league.relegated && league.relegated.length > 0) {
-const rc = league.relegated.map(c => buildCard(c, league.id, true)).join('');
-rel = `<div class="section-divider"><div class="divider-line"></div><span class="divider-label">Relégués — hors classement</span><div class="divider-line"></div></div><div class="clubs-grid">${rc}</div>`;
-}
-return `<div class="league-header">
-<div class="progress-block">
-<div class="progress-label">Progression</div>
-<div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-</div>
-<div class="progress-count"><strong>${s.seen}</strong>sur ${s.total} clubs vus</div>
-<button class="btn-season" onclick="openSeasonModal('${league.id}')">🔄 Fin de saison</button>
-</div>
-<div class="clubs-grid">${cards}</div>${rel}`;
+  const s = leagueStats(league);
+  const pct = Math.round((s.seen/Math.max(s.total,1))*100);
+  const cards = league.clubs.map(c => buildCard(c, league.id, false)).join('');
+  let rel = '';
+  if (league.relegated && league.relegated.length > 0) {
+    const rc = league.relegated.map(c => buildCard(c, league.id, true)).join('');
+    rel = `<div class="section-divider"><div class="divider-line"></div><span class="divider-label">Relégués — hors classement</span><div class="divider-line"></div></div><div class="clubs-grid">${rc}</div>`;
+  }
+  return `<div class="league-header">
+    <div class="progress-block">
+      <div class="progress-label">Progression</div>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="progress-count"><strong>${s.seen}</strong>sur ${s.total} clubs vus</div>
+    <button class="btn-season" onclick="openSeasonModal('${league.id}')">🔄 Fin de saison</button>
+  </div>
+  <div class="clubs-grid">${cards}</div>${rel}`;
 }
 
 function buildAutre(league) {
-const cards = league.clubs.length > 0
-? league.clubs.map(c => buildCardAutre(c)).join('')
-: `<div style="color:var(--text-soft);font-size:14px;grid-column:1/-1;padding:20px 0;">Aucun club ajouté. Cliquez sur "Ajouter un club" pour commencer.</div>`;
-return `<div class="autre-header">
-<div class="autre-title">🌐 Clubs hors ligues</div>
-<button class="btn-add" onclick="openAddModal()">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-Ajouter un club
-</button>
-</div>
-<div class="clubs-grid">${cards}</div>`;
+  const cards = league.clubs.length > 0
+    ? league.clubs.map(c => buildCardAutre(c)).join('')
+    : `<div style="color:var(--text-soft);font-size:14px;grid-column:1/-1;padding:20px 0;">Aucun club ajouté. Cliquez sur "Ajouter un club" pour commencer.</div>`;
+  return `<div class="autre-header">
+    <div class="autre-title">🌐 Clubs hors ligues</div>
+    <button class="btn-add" onclick="openAddModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Ajouter un club
+    </button>
+  </div>
+  <div class="clubs-grid">${cards}</div>`;
 }
 
 function buildCard(name, leagueId, isRelegated) {
-const d = get(name);
-let cardClass = isRelegated && d.status==='unseen' ? 'relegated' : d.status;
-let tags = '';
-if (d.status==='seen'||d.status==='stadium') {
-if (d.matches>0) tags += `<span class="tag tag-matches">👁 ${d.matches} match${d.matches>1?'s':''}</span>`;
-if (d.scores) tags += `<span class="tag tag-score">${d.scores}</span>`;
-if (d.status==='stadium'&&d.stadiumName) tags += `<span class="tag tag-stadium">🏟 ${d.stadiumName}</span>`;
-} else {
-tags = `<span class="unseen-label">—</span>`;
-}
-const safe = name.replace(/'/g,"\\'");
-return `<div class="club-card ${cardClass}" onclick="openModal('${safe}','${leagueId}')">
-<div class="status-dot"></div>
-<div class="club-name">${name}</div>
-<div class="tags">${tags}</div>
-</div>`;
+  const d = get(name);
+  let cardClass = isRelegated && d.status==='unseen' ? 'relegated' : d.status;
+  let tags = '';
+  if (d.status==='seen'||d.status==='stadium') {
+    if (d.matches>0) tags += `<span class="tag tag-matches">👁 ${d.matches} match${d.matches>1?'s':''}</span>`;
+    if (d.scores) tags += `<span class="tag tag-score">${d.scores}</span>`;
+    if (d.status==='stadium'&&d.stadiumName) tags += `<span class="tag tag-stadium">🏟 ${d.stadiumName}</span>`;
+  } else {
+    tags = `<span class="unseen-label">—</span>`;
+  }
+  const safe = name.replace(/'/g,"\\'");
+  return `<div class="club-card ${cardClass}" onclick="openModal('${safe}','${leagueId}')">
+    <div class="status-dot"></div>
+    <div class="club-name">${name}</div>
+    <div class="tags">${tags}</div>
+  </div>`;
 }
 
 function buildCardAutre(name) {
-const d = get(name);
-let tags = '';
-if (d.status==='seen'||d.status==='stadium') {
-if (d.matches>0) tags += `<span class="tag tag-matches">👁 ${d.matches} match${d.matches>1?'s':''}</span>`;
-if (d.scores) tags += `<span class="tag tag-score">${d.scores}</span>`;
-if (d.status==='stadium'&&d.stadiumName) tags += `<span class="tag tag-stadium">🏟 ${d.stadiumName}</span>`;
-} else {
-tags = `<span class="unseen-label">—</span>`;
-}
-const safe = name.replace(/'/g,"\\'");
-return `<div class="club-card ${d.status}" onclick="openModal('${safe}','autre')">
-<div class="status-dot"></div>
-<div class="club-name">${name}</div>
-<div class="tags">${tags}</div>
-<button onclick="event.stopPropagation();removeAutreClub('${safe}')" style="position:absolute;bottom:8px;right:8px;background:none;border:none;cursor:pointer;color:var(--text-soft);font-size:11px;padding:2px 4px;border-radius:4px;" title="Supprimer">✕</button>
-</div>`;
+  const d = get(name);
+  let tags = '';
+  if (d.status==='seen'||d.status==='stadium') {
+    if (d.matches>0) tags += `<span class="tag tag-matches">👁 ${d.matches} match${d.matches>1?'s':''}</span>`;
+    if (d.scores) tags += `<span class="tag tag-score">${d.scores}</span>`;
+    if (d.status==='stadium'&&d.stadiumName) tags += `<span class="tag tag-stadium">🏟 ${d.stadiumName}</span>`;
+  } else {
+    tags = `<span class="unseen-label">—</span>`;
+  }
+  const safe = name.replace(/'/g,"\\'");
+  return `<div class="club-card ${d.status}" onclick="openModal('${safe}','autre')">
+    <div class="status-dot"></div>
+    <div class="club-name">${name}</div>
+    <div class="tags">${tags}</div>
+    <button onclick="event.stopPropagation();removeAutreClub('${safe}')" style="position:absolute;bottom:8px;right:8px;background:none;border:none;cursor:pointer;color:var(--text-soft);font-size:11px;padding:2px 4px;border-radius:4px;" title="Supprimer">✕</button>
+  </div>`;
 }
 
 function switchTab(id) {
-document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-document.querySelector(`[data-id="${id}"]`).classList.add('active');
-document.getElementById('c-'+id).classList.add('active');
-if (id === 'global') document.getElementById('c-global').innerHTML = buildGlobal();
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+  document.querySelector(`[data-id="${id}"]`).classList.add('active');
+  document.getElementById('c-'+id).classList.add('active');
+  if (id === 'global') document.getElementById('c-global').innerHTML = buildGlobal();
 }
 
 function updateHeader() {
-const s = globalStats();
-document.getElementById('h-seen').textContent = s.seen;
-document.getElementById('h-stadium').textContent = s.stadium;
-document.getElementById('h-matches').textContent = s.matches;
+  const s = globalStats();
+  document.getElementById('h-seen').textContent = s.seen;
+  document.getElementById('h-stadium').textContent = s.stadium;
+  document.getElementById('h-matches').textContent = s.matches;
 }
 
 function refreshLeague(id) {
-const league = LEAGUES.find(l => l.id === id);
-if (!league || league.isGlobal) return;
-if (league.isAutre) {
-document.getElementById('c-autre').innerHTML = buildAutre(league);
-const badge = document.querySelector(`[data-id="autre"] .tab-badge`);
-if (badge) badge.textContent = league.clubs.length;
-} else {
-document.getElementById('c-'+id).innerHTML = buildLeague(league);
-const s = leagueStats(league);
-const pct = Math.round((s.seen/Math.max(s.total,1))*100);
-const badge = document.querySelector(`[data-id="${id}"] .tab-badge`);
-if (badge) badge.textContent = pct+'%';
-}
+  const league = LEAGUES.find(l => l.id === id);
+  if (!league || league.isGlobal) return;
+  if (league.isAutre) {
+    document.getElementById('c-autre').innerHTML = buildAutre(league);
+    const badge = document.querySelector(`[data-id="autre"] .tab-badge`);
+    if (badge) badge.textContent = league.clubs.length;
+  } else {
+    document.getElementById('c-'+id).innerHTML = buildLeague(league);
+    const s = leagueStats(league);
+    const pct = Math.round((s.seen/Math.max(s.total,1))*100);
+    const badge = document.querySelector(`[data-id="${id}"] .tab-badge`);
+    if (badge) badge.textContent = pct+'%';
+  }
 }
 
 // ---- Club modal ----
 function openModal(name, leagueId) {
-currentModal = {name, leagueId};
-const d = get(name);
-const league = LEAGUES.find(l => l.id === leagueId);
-document.getElementById('m-name').textContent = name;
-document.getElementById('m-league').textContent = league ? `${league.flag} ${league.name}` : '';
-document.getElementById('m-status').value = d.status;
-document.getElementById('m-matches').value = d.matches||0;
-document.getElementById('m-scores').value = d.scores||'';
-document.getElementById('m-stadium').value = d.stadiumName||'';
-toggleStadium(d.status);
-document.getElementById('m-status').onchange = e => toggleStadium(e.target.value);
-document.getElementById('overlay').classList.add('open');
+  currentModal = {name, leagueId};
+  const d = get(name);
+  const league = LEAGUES.find(l => l.id === leagueId);
+  document.getElementById('m-name').textContent = name;
+  document.getElementById('m-league').textContent = league ? `${league.flag} ${league.name}` : '';
+  document.getElementById('m-status').value = d.status;
+  document.getElementById('m-matches').value = d.matches||0;
+  document.getElementById('m-scores').value = d.scores||'';
+  document.getElementById('m-stadium').value = d.stadiumName||'';
+  toggleStadium(d.status);
+  document.getElementById('m-status').onchange = e => toggleStadium(e.target.value);
+  document.getElementById('overlay').classList.add('open');
 }
 
 function toggleStadium(v) {
-document.getElementById('f-stadium').style.display = v==='stadium'?'flex':'none';
+  document.getElementById('f-stadium').style.display = v==='stadium'?'flex':'none';
 }
 
 function closeModal() {
-document.getElementById('overlay').classList.remove('open');
-currentModal = null;
+  document.getElementById('overlay').classList.remove('open');
+  currentModal = null;
 }
 
 function saveClub() {
-if (!currentModal) return;
-db[currentModal.name] = {
-status: document.getElementById('m-status').value,
-matches: parseInt(document.getElementById('m-matches').value)||0,
-scores: document.getElementById('m-scores').value,
-stadiumName: document.getElementById('m-stadium').value,
-};
-persist();
-const lid = currentModal.leagueId;
-closeModal();
-refreshLeague(lid);
-updateHeader();
+  if (!currentModal) return;
+  db[currentModal.name] = {
+    status: document.getElementById('m-status').value,
+    matches: parseInt(document.getElementById('m-matches').value)||0,
+    scores: document.getElementById('m-scores').value,
+    stadiumName: document.getElementById('m-stadium').value,
+  };
+  persist();
+  const lid = currentModal.leagueId;
+  closeModal();
+  refreshLeague(lid);
+  updateHeader();
 }
 
 function resetClub() {
-if (!currentModal) return;
-delete db[currentModal.name];
-persist();
-const lid = currentModal.leagueId;
-closeModal();
-refreshLeague(lid);
-updateHeader();
+  if (!currentModal) return;
+  delete db[currentModal.name];
+  persist();
+  const lid = currentModal.leagueId;
+  closeModal();
+  refreshLeague(lid);
+  updateHeader();
 }
 
 // ---- Add club modal (Autre) ----
 function openAddModal() {
-document.getElementById('add-name').value = '';
-document.getElementById('add-status').value = 'unseen';
-document.getElementById('add-matches').value = '0';
-document.getElementById('add-scores').value = '';
-document.getElementById('add-stadium').value = '';
-document.getElementById('f-add-stadium').style.display = 'none';
-document.getElementById('add-status').onchange = e => {
-document.getElementById('f-add-stadium').style.display = e.target.value==='stadium'?'flex':'none';
-};
-document.getElementById('overlay-add').classList.add('open');
-setTimeout(() => document.getElementById('add-name').focus(), 100);
+  document.getElementById('add-name').value = '';
+  document.getElementById('add-status').value = 'unseen';
+  document.getElementById('add-matches').value = '0';
+  document.getElementById('add-scores').value = '';
+  document.getElementById('add-stadium').value = '';
+  document.getElementById('f-add-stadium').style.display = 'none';
+  document.getElementById('add-status').onchange = e => {
+    document.getElementById('f-add-stadium').style.display = e.target.value==='stadium'?'flex':'none';
+  };
+  document.getElementById('overlay-add').classList.add('open');
+  setTimeout(() => document.getElementById('add-name').focus(), 100);
 }
 
 function closeAddModal() {
-document.getElementById('overlay-add').classList.remove('open');
+  document.getElementById('overlay-add').classList.remove('open');
 }
 
 function saveAddClub() {
-const name = document.getElementById('add-name').value.trim();
-if (!name) { document.getElementById('add-name').focus(); return; }
-const autre = LEAGUES.find(l => l.id === 'autre');
-if (!autre.clubs.includes(name)) autre.clubs.push(name);
-db[name] = {
-status: document.getElementById('add-status').value,
-matches: parseInt(document.getElementById('add-matches').value)||0,
-scores: document.getElementById('add-scores').value,
-stadiumName: document.getElementById('add-stadium').value,
-};
-persist();
-closeAddModal();
-refreshLeague('autre');
-updateHeader();
+  const name = document.getElementById('add-name').value.trim();
+  if (!name) { document.getElementById('add-name').focus(); return; }
+  const autre = LEAGUES.find(l => l.id === 'autre');
+  if (!autre.clubs.includes(name)) autre.clubs.push(name);
+  db[name] = {
+    status: document.getElementById('add-status').value,
+    matches: parseInt(document.getElementById('add-matches').value)||0,
+    scores: document.getElementById('add-scores').value,
+    stadiumName: document.getElementById('add-stadium').value,
+  };
+  persist();
+  closeAddModal();
+  refreshLeague('autre');
+  updateHeader();
 }
 
 function removeAutreClub(name) {
-if (!confirm(`Supprimer "${name}" de l'onglet Autre ?`)) return;
-const autre = LEAGUES.find(l => l.id === 'autre');
-autre.clubs = autre.clubs.filter(c => c !== name);
-persist();
-refreshLeague('autre');
-updateHeader();
+  if (!confirm(`Supprimer "${name}" de l'onglet Autre ?`)) return;
+  const autre = LEAGUES.find(l => l.id === 'autre');
+  autre.clubs = autre.clubs.filter(c => c !== name);
+  persist();
+  refreshLeague('autre');
+  updateHeader();
 }
 
 // ---- Season manager ----
 function openSeasonModal(leagueId) {
-seasonLeagueId = leagueId;
-const league = LEAGUES.find(l => l.id === leagueId);
-document.getElementById('sm-title').textContent = `${league.flag} ${league.name} — Fin de saison`;
-document.getElementById('sm-sub').textContent = 'Sélectionnez les équipes reléguées et celles à promouvoir.';
-document.getElementById('sm-new-team').value = '';
+  seasonLeagueId = leagueId;
+  const league = LEAGUES.find(l => l.id === leagueId);
+  document.getElementById('sm-title').textContent = `${league.flag} ${league.name} — Fin de saison`;
+  document.getElementById('sm-sub').textContent = 'Sélectionnez les équipes reléguées et celles à promouvoir.';
+  document.getElementById('sm-new-team').value = '';
 
-// Current clubs → check to relegate
-const currentList = document.getElementById('sm-current-list');
-currentList.innerHTML = league.clubs.map(c => `
-<label class="team-check">
-<input type="checkbox" value="${c.replace(/"/g,'&quot;')}" data-action="relegate">
-${c}
-</label>
-`).join('');
+  // Current clubs → check to relegate
+  const currentList = document.getElementById('sm-current-list');
+  currentList.innerHTML = league.clubs.map(c => `
+    <label class="team-check">
+      <input type="checkbox" value="${c.replace(/"/g,'&quot;')}" data-action="relegate">
+      ${c}
+    </label>
+  `).join('');
 
-// Relegated clubs → check to promote back
-const relList = document.getElementById('sm-relegated-list');
-if (league.relegated && league.relegated.length > 0) {
-relList.innerHTML = league.relegated.map(c => `
-<label class="team-check">
-<input type="checkbox" value="${c.replace(/"/g,'&quot;')}" data-action="promote">
-${c}
-</label>
-`).join('');
-} else {
-relList.innerHTML = '<span style="font-size:12px;color:var(--text-soft);padding:4px 6px;">Aucune équipe reléguée.</span>';
-}
+  // Relegated clubs → check to promote back
+  const relList = document.getElementById('sm-relegated-list');
+  if (league.relegated && league.relegated.length > 0) {
+    relList.innerHTML = league.relegated.map(c => `
+      <label class="team-check">
+        <input type="checkbox" value="${c.replace(/"/g,'&quot;')}" data-action="promote">
+        ${c}
+      </label>
+    `).join('');
+  } else {
+    relList.innerHTML = '<span style="font-size:12px;color:var(--text-soft);padding:4px 6px;">Aucune équipe reléguée.</span>';
+  }
 
-document.getElementById('overlay-season').classList.add('open');
+  document.getElementById('overlay-season').classList.add('open');
 }
 
 function smAddNewTeam() {
-const input = document.getElementById('sm-new-team');
-const name = input.value.trim();
-if (!name) return;
-const relList = document.getElementById('sm-relegated-list');
-// Remove "aucune" placeholder if present
-const placeholder = relList.querySelector('span');
-if (placeholder) placeholder.remove();
-const label = document.createElement('label');
-label.className = 'team-check';
-label.innerHTML = `<input type="checkbox" value="${name}" data-action="promote" checked> ${name} <em style="font-size:11px;color:var(--text-soft)">(nouveau)</em>`;
-relList.appendChild(label);
-input.value = '';
+  const input = document.getElementById('sm-new-team');
+  const name = input.value.trim();
+  if (!name) return;
+  const relList = document.getElementById('sm-relegated-list');
+  // Remove "aucune" placeholder if present
+  const placeholder = relList.querySelector('span');
+  if (placeholder) placeholder.remove();
+  const label = document.createElement('label');
+  label.className = 'team-check';
+  label.innerHTML = `<input type="checkbox" value="${name}" data-action="promote" checked> ${name} <em style="font-size:11px;color:var(--text-soft)">(nouveau)</em>`;
+  relList.appendChild(label);
+  input.value = '';
 }
 
 function applySeasonChanges() {
-const league = LEAGUES.find(l => l.id === seasonLeagueId);
-const toRelegate = [...document.querySelectorAll('#sm-current-list input[data-action="relegate"]:checked')].map(i => i.value);
-const toPromote = [...document.querySelectorAll('#sm-relegated-list input[data-action="promote"]:checked')].map(i => i.value);
+  const league = LEAGUES.find(l => l.id === seasonLeagueId);
+  const toRelegate = [...document.querySelectorAll('#sm-current-list input[data-action="relegate"]:checked')].map(i => i.value);
+  const toPromote = [...document.querySelectorAll('#sm-relegated-list input[data-action="promote"]:checked')].map(i => i.value);
 
-// Move relegated teams out of clubs into relegated
-league.clubs = league.clubs.filter(c => !toRelegate.includes(c));
-league.relegated = [...(league.relegated||[]), ...toRelegate];
+  // Move relegated teams out of clubs into relegated
+  league.clubs = league.clubs.filter(c => !toRelegate.includes(c));
+  league.relegated = [...(league.relegated||[]), ...toRelegate];
 
-// Move promoted teams out of relegated into clubs
-league.relegated = league.relegated.filter(c => !toPromote.includes(c));
-league.clubs = [...league.clubs, ...toPromote];
+  // Move promoted teams out of relegated into clubs
+  league.relegated = league.relegated.filter(c => !toPromote.includes(c));
+  league.clubs = [...league.clubs, ...toPromote];
 
-persist();
-closeSeasonModal();
-refreshLeague(seasonLeagueId);
-updateHeader();
+  persist();
+  closeSeasonModal();
+  refreshLeague(seasonLeagueId);
+  updateHeader();
 }
 
 function closeSeasonModal() {
-document.getElementById('overlay-season').classList.remove('open');
-seasonLeagueId = null;
+  document.getElementById('overlay-season').classList.remove('open');
+  seasonLeagueId = null;
 }
 
 // Close modals on backdrop click
 ['overlay','overlay-add','overlay-season'].forEach(id => {
-document.getElementById(id).addEventListener('click', e => {
-if (e.target === e.currentTarget) {
-if (id==='overlay') closeModal();
-if (id==='overlay-add') closeAddModal();
-if (id==='overlay-season') closeSeasonModal();
-}
-});
+  document.getElementById(id).addEventListener('click', e => {
+    if (e.target === e.currentTarget) {
+      if (id==='overlay') closeModal();
+      if (id==='overlay-add') closeAddModal();
+      if (id==='overlay-season') closeSeasonModal();
+    }
+  });
 });
 
 load();
